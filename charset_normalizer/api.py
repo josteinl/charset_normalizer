@@ -79,7 +79,9 @@ def from_bytes(
         if explain:
             logger.removeHandler(explain_handler)
             logger.setLevel(previous_logger_level or logging.WARNING)
-        return CharsetMatches([CharsetMatch(sequences, "utf_8", 0.0, False, [], "")])
+        return CharsetMatches([CharsetMatch(#sequences,
+            b"",
+                                            "utf_8", 0.0, False, [], "")])
 
     if cp_isolation is not None:
         logger.log(
@@ -367,7 +369,8 @@ def from_bytes(
                 and not lazy_str_hard_failure
             ):
                 fallback_entry = CharsetMatch(
-                    sequences, encoding_iana, threshold, False, [], decoded_payload
+                    # sequences, encoding_iana, threshold, False, [], decoded_payload
+                    b"", encoding_iana, threshold, False, [], None
                 )
                 if encoding_iana == specified_encoding:
                     fallback_specified = fallback_entry
@@ -423,12 +426,14 @@ def from_bytes(
 
         results.append(
             CharsetMatch(
-                sequences,
+                #sequences,
+                b"",
                 encoding_iana,
                 mean_mess_ratio,
                 bom_or_sig_available,
                 cd_ratios_merged,
-                decoded_payload,
+                # decoded_payload,
+                decoded_payload=None,
             )
         )
 
