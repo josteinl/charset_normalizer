@@ -9,12 +9,6 @@ from charset_normalizer.api import from_bytes
 
 file_name = "data/memory_profile_test.txt"
 
-# with open(file_name, "rb") as file:
-#     data = file.read()
-#     result = detect(data)
-#     print(f"{sys.getsizeof(result)=}")
-#     print(f"{result=}")
-
 
 with open(file_name, "rb") as file:
     data = file.read()
@@ -26,10 +20,3 @@ with open(file_name, "rb") as file:
         print(f"{id(r.raw)=}")
     best = result.best()
     print(f"{best=}")
-
-
-# with open(file_name, "rb") as file:
-#     result = from_fp(file)
-#     print(f"{sys.getsizeof(result)=}")
-#     best = result.best()
-#     print(f"{best=}")

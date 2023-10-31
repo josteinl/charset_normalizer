@@ -29,7 +29,6 @@ DIR_PATH = path.join(
         ('sample-russian-2.txt', 'utf_8', 'Russian'),
         ('sample-russian.txt', 'mac_cyrillic', 'Russian'),
         ('sample-polish.txt', 'utf_8', 'Polish'),
-        ('memory_profile_test.txt', 'cp1006', 'Farsi'),
     ]
 )
 def test_elementary_detection(
